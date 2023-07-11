@@ -2,12 +2,14 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8bI-xd-zVm">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--YDLeetCode-->
         <scene sceneID="6w8-FI-Ee2">
             <objects>
                 <tableViewController id="VkX-hr-HXc" customClass="HomeViewController" customModule="YDLeetCode" customModuleProvider="target" sceneMemberID="viewController">
@@ -30,7 +32,10 @@
                             <outlet property="delegate" destination="VkX-hr-HXc" id="NAL-G3-Ols"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dGL-WX-PJg"/>
+                    <navigationItem key="navigationItem" title="YDLeetCode" id="dGL-WX-PJg"/>
+                    <connections>
+                        <outlet property="homeTableView" destination="Quq-Ss-h7n" id="Wgp-IY-hKI"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Q7-Le-Ybg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,6 +56,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h1R-YQ-sWa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-815" y="205"/>
+        </scene>
+        <!--Next View Controller-->
+        <scene sceneID="lk3-kE-0iv">
+            <objects>
+                <viewController storyboardIdentifier="NextViewController" id="jtb-pX-dJ3" customClass="NextViewController" customModule="YDLeetCode" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Uln-rw-sRE">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzM-ck-Naw">
+                                <rect key="frame" x="0.0" y="194" width="393" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="l2l-DN-hDW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="描述" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-0z-pKn">
+                                <rect key="frame" x="0.0" y="254.00000000000003" width="393" height="19.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haX-mu-4de">
+                                <rect key="frame" x="167" y="696" width="59" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="运行"/>
+                                <connections>
+                                    <action selector="runCode:" destination="jtb-pX-dJ3" eventType="touchUpInside" id="edC-zn-UjL"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MLd-89-aV0"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YzM-ck-Naw" firstAttribute="top" secondItem="MLd-89-aV0" secondAttribute="top" constant="135" id="IhW-So-oC3"/>
+                            <constraint firstItem="ygy-0z-pKn" firstAttribute="centerX" secondItem="MLd-89-aV0" secondAttribute="centerX" id="Vho-C2-4gN"/>
+                            <constraint firstItem="MLd-89-aV0" firstAttribute="trailing" secondItem="ygy-0z-pKn" secondAttribute="trailing" id="YdN-w4-wIj"/>
+                            <constraint firstItem="YzM-ck-Naw" firstAttribute="centerX" secondItem="MLd-89-aV0" secondAttribute="centerX" id="bVy-cQ-dth"/>
+                            <constraint firstItem="MLd-89-aV0" firstAttribute="trailing" secondItem="YzM-ck-Naw" secondAttribute="trailing" id="d5V-G5-uhk"/>
+                            <constraint firstItem="YzM-ck-Naw" firstAttribute="leading" secondItem="MLd-89-aV0" secondAttribute="leading" id="hw7-9V-JGl"/>
+                            <constraint firstItem="ygy-0z-pKn" firstAttribute="top" secondItem="YzM-ck-Naw" secondAttribute="bottom" constant="39" id="i2b-ha-lLX"/>
+                            <constraint firstItem="ygy-0z-pKn" firstAttribute="leading" secondItem="MLd-89-aV0" secondAttribute="leading" id="ief-fx-b8A"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descLabel" destination="ygy-0z-pKn" id="4aU-Zi-QvU"/>
+                        <outlet property="runButton" destination="haX-mu-4de" id="0XM-Ax-MjH"/>
+                        <outlet property="titleLabel" destination="YzM-ck-Naw" id="Gx8-4x-Aku"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4jm-2j-CI8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-158" y="-481"/>
         </scene>
     </scenes>
     <resources>
