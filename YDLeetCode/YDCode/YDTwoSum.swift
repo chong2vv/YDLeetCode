@@ -11,67 +11,20 @@ class YDTwoSum: Algorithm {
 
     override func runCode() {
         super.runCode()
-        print(twoSum([0,4,3,0], 0))
+        print(twoSum([2,7,11,15], 9))
     }
     
+    // 遍历一次，差值存字典，如果有值就是解
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        
-        for i in (0..<nums.count).reversed() {
-            print(i)
-            print(nums[i])
-        }
-        
-        var result: [Int] = [Int]()
-        if nums.count == 1 {
-            return result
-        }
-        
-        if nums.count == 2 {
-            if nums[0] + nums[1] == target {
-                result.append(0)
-                result.append(1)
-                return result
+        var dic:[Int: Int] = [Int: Int]()
+        for (index, element) in nums.enumerated() {
+            if let numb = dic[element] {
+                return [index, numb]
+            }else {
+                dic[target - element] = index
             }
         }
-        
-        for i in (0...nums.count - 2) {
-            for j in (i+1...nums.count - 1) {
-                if nums[i] + nums[j] == target {
-                    result.append(i)
-                    result.append(j)
-                    return result
-                }
-                
-            }
-        }
-        return result
-    }
-    
-    func twoSum2(_ nums: [Int], _ target: Int) -> [Int] {
-        var result: [Int] = [Int]()
-        if nums.count == 1 {
-            return result
-        }
-        
-        if nums.count == 2 {
-            if nums[0] + nums[1] == target {
-                result.append(0)
-                result.append(1)
-                return result
-            }
-        }
-        
-        for i in (0...nums.count - 2) {
-            for j in (i+1...nums.count - 1) {
-                if nums[i] + nums[j] == target {
-                    result.append(i)
-                    result.append(j)
-                    return result
-                }
-                
-            }
-        }
-        return result
+        return []
     }
     
     override func getTitle() -> String {
